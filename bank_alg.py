@@ -126,7 +126,7 @@ def open_account():
         transaction.append(account_number)
         transaction.append('Polog kod otvaranja racuna')
         transaction.append(company_manager)
-        transactions[transaction_id + 1] = transaction
+        transactions[transaction_id] = transaction
 
     else:
         amount = 0.00
@@ -141,6 +141,7 @@ def create_transactions():
 def create_withdrawals():
     global transactions
     global account_balance
+    global transaction_id
     
     print('Upisite koji iznos bi zeljeli isplatiti sa svoga racuna: ')
     withdrawal = input('\t')
@@ -156,7 +157,8 @@ def create_withdrawals():
         transaction.append(account_balance)
         transaction.append(account_number)
         transaction.append(company_manager)
-        transactions[transaction_id + 1] = transaction
+        transaction_id +=1
+        transactions[transaction_id] = transaction
         
     else:
         withdrawal = 0.00
@@ -167,6 +169,7 @@ def create_withdrawals():
 def create_deposit():
     global transactions
     global account_balance
+    global transaction_id
     
     print('Molimo Vas upisite iznos koji zelite poloziti na racun.\nNAPOMENA Molimo Vas koristite decimalnu tocku, a ne zarez.\n')
     deposit = input('\t')
@@ -181,8 +184,8 @@ def create_deposit():
         transaction.append(account_balance)
         transaction.append(account_number)
         transaction.append(company_manager)
-        transactions[transaction_id + 1] = transaction
-        
+        transaction_id +=1
+        transactions[transaction_id] = transaction
     else:
         deposit = 0.00
         
