@@ -69,6 +69,7 @@ def open_account():
     global company_manager
     global currency
     global transactions
+    global transaction_id
     global account_balance
 
     company_name = input('Naziv Tvrtke:\t\t\t\t')
@@ -126,8 +127,8 @@ def open_account():
         transaction.append(account_number)
         transaction.append('Polog kod otvaranja racuna')
         transaction.append(company_manager)
+        transaction_id +=1
         transactions[transaction_id] = transaction
-
     else:
         amount = 0.00
 
